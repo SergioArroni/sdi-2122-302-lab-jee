@@ -1,4 +1,4 @@
-package com.uniovi.sdi.sdi2122302labjee;
+package com.uniovi.sdi;
 
 import java.io.*;
 import javax.servlet.ServletException;
