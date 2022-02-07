@@ -1,13 +1,27 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>JSP - Hello World</title>
+    <title>Servlets</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<!-- Contenido -->
+<div class="container" id="contenedor-principal">
+    <h2>Formulario GET Saludar</h2>
+    <form action="GreetingServlet" method="get">
+        <div class="form-group"> <label for="name-get">Nombre</label> <input type="text" class="form-control" name="name" id="name-get">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <h2>Formulario POST</h2>
+    <form action="GreetingServlet" method="post">
+        <div class="form-group"> <label for="name-post">Nombre</label> <input type="text" class="form-control" name="name" id="name-post">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 </body>
 </html>
