@@ -41,22 +41,16 @@
 <!-- Contenido -->
 <div class="container" id="main-container"><h2>Productos</h2>
     <div class="row ">
-        <%
-            List<Product> listProducts = new ProductsService().getProducts();
-            for (Product product : listProducts) {
-        %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div><img src="<%=product.getImage() %>"/>
-                <div><%=product.getName() %>
-                </div>
-                <a href="AddToShoppingCart?product=<%=product.getName() %>"
-                   class="btn btn-default"><%=product.getPrice() %> €
-                </a></div>
-        </div>
-        <%
-            }
-        %>
-    </div>
+        <jsp:useBean id="productsService" class="com.uniovi.sdi.ProductsService"/>
+        <c:forEach var="product" begin="0" items="${productsService.products}">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <div><img src="<c:out value="${product.image}"/>"/>
+                    <div><c:out value="${product.name}"/></div>
+                    <a href="AddToShoppingCart?product=<c:out value="${product.name}"/>" class="btn btn-default"> <c:out
+                            value="${product.price}"/> €
+                    </a></div>
+            </div>
+        </c:forEach></div>
 </div>
 </body>
 </html>
