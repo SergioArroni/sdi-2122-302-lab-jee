@@ -26,13 +26,9 @@
         // No hay usuario o no es admin response.sendRedirect("login.jsp");
     }
 %>
-<%
-    if (request.getParameter("name") != null &&
-        request.getParameter("image") != null && request.getParameter("price") != null) {
-    String name = (String) request.getParameter("name");
-    String image = (String) request.getParameter("image");
-    float price = Float.parseFloat(request.getParameter("price"));
-    Product product = new Product(name, image, price);
+<jsp:useBean id="product" class="com.uniovi.sdi.Product"/>
+<jsp:setProperty name="product" property="*"/>
+<% if (product.getName() != null) {
     new ProductsService().setNewProduct(product);
     request.getRequestDispatcher("index.jsp").forward(request, response);
 }

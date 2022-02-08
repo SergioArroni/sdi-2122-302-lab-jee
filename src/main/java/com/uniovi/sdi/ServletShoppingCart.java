@@ -19,7 +19,10 @@ public class ServletShoppingCart extends HttpServlet {
             cart = new HashMap<String, Integer>();
             request.getSession().setAttribute("cart", cart);
         }
-        String product = request.getParameter("product"); if (product != null) {addToShoppingCart(cart, product);}
+        String product = request.getParameter("product");
+        if (product != null) {
+            addToShoppingCart(cart, product);
+        }
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -32,21 +35,20 @@ public class ServletShoppingCart extends HttpServlet {
     }
 
     private void addToShoppingCart(HashMap<String, Integer> cart, String product) {
-        if(cart.get(product) == null){
-            cart.put(product,Integer.valueOf(1));
-        }
-        else {
+        if (cart.get(product) == null) {
+            cart.put(product, Integer.valueOf(1));
+        } else {
             int productCont = (Integer) cart.get(product).intValue();
-            cart.put(product,Integer.valueOf(productCont+1));
+            cart.put(product, Integer.valueOf(productCont + 1));
         }
     }
 
     private String shoppingCartToHtml(HashMap<String, Integer> cart) {
-    String shoppingCardHtml="";
-    for (String key: cart.keySet()){
-        shoppingCardHtml += "<p>["+key+"]"+cart.get(key)+"unidades</p>";
-    }
-    return shoppingCardHtml;
+        String shoppingCardHtml = "";
+        for (String key : cart.keySet()) {
+            shoppingCardHtml += "<p>[" + key + "]" + cart.get(key) + "unidades</p>";
+        }
+        return shoppingCardHtml;
     }
 
     @Override
