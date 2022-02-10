@@ -12,7 +12,9 @@ public class ProductsService {
         ObjectContainer db = null;
         try {
             db = Db4oEmbedded.openFile("bdProducts");
-            List<Product> response = db.queryByExample(Product.class); // NO RETORNAR LA MISMA LISTA DE LA RESPUESTA products.addAll(response);
+            List<Product> response = db.queryByExample(Product.class);
+            // NO RETORNAR LA MISMA LISTA DE LA RESPUESTA
+            products.addAll(response);
         } finally {
             db.close();
         }
