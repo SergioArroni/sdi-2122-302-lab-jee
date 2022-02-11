@@ -7,6 +7,7 @@ import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 
 public class ProductsService {
+
     public List<Product> getProducts() {
         List<Product> products = new LinkedList<Product>();
         ObjectContainer db = null;

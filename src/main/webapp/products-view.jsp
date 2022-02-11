@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
-<head><title>Vista carrito</title>
+<head><title>Vista productos</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet"
@@ -37,10 +37,10 @@
     </div>
 </nav>
 <!-- Contenido -->
-<div class="container" id="main-container"><h2>Vista Carrito</h2>
-    <ul><c:forEach var="item" items="${selectedItems}">
+<div class="container" id="main-container"><h2>Todos los Productos</h2>
+    <ul><c:forEach var="item" items="${storeProducts}">
         <tr>
-            <li>${item.key} - ${item.value} </li>
+            <li>${item.name}</li>
         </tr>
     </c:forEach>
     </ul>
